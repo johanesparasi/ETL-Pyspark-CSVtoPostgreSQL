@@ -20,8 +20,8 @@ def convert_date(col, formats=('dd-MMM-yy')):
 
 df = (
     df.withColumn('ApprovalDate', F.when(F.length('ApprovalDate') > 7, df['ApprovalDate']).otherwise(F.lit('01-Jan-70'))) # replace anomaly value to 01-Jan-1970
-    .withColumn('ChgOffDate', F.when(F.length('ChgOffDate') > 7, df['ChgOffDate']).otherwise(F.lit('01-Jan-70')))
-    .withColumn('DisbursementDate', F.when(F.length('DisbursementDate') > 7, df['DisbursementDate']).otherwise(F.lit('01-Jan-70')))
+    .withColumn('ChgOffDate', F.when(F.length('ChgOffDate') > 7, df['ChgOffDate']).otherwise(F.lit('01-Jan-70'))) # replace anomaly value to 01-Jan-1970
+    .withColumn('DisbursementDate', F.when(F.length('DisbursementDate') > 7, df['DisbursementDate']).otherwise(F.lit('01-Jan-70'))) # replace anomaly value to 01-Jan-1970
     .withColumn('ApprovalDate', convert_date('ApprovalDate'))
     .withColumn('ChgOffDate', convert_date('ChgOffDate'))
     .withColumn('DisbursementDate', convert_date('DisbursementDate'))
