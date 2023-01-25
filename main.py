@@ -4,8 +4,8 @@ import pyspark.sql.functions as F
 url = 'jdbc:postgresql://localhost:5432/spark'
 table = 'coba'
 driver = 'org.postgresql.Driver'
-user = 'postgres'
-password = 'johanes'
+user = ''
+password = ''
 
 spark = SparkSession.builder.appName('SBAnational').getOrCreate()
 
